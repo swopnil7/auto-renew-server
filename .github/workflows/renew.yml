@@ -1,0 +1,27 @@
+name: Auto Renew KataBump
+
+on:
+  schedule:
+    - cron: "0 10 */4 * *"  # Every 4 days at 10:00 UTC
+
+jobs:
+  renew:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Puppeteer
+        run: npm install
+
+      - name: Run the renew script
+        run: node renew.js
+        env:
+          KATABUMP_EMAIL: ${{ secrets.KATABUMP_EMAIL }}
+          KATABUMP_PASSWORD: ${{ secrets.KATABUMP_PASSWORD }}
