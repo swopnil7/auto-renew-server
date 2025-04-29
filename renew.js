@@ -8,7 +8,7 @@ const puppeteer = require("puppeteer");
   const page = await browser.newPage();
 
   // Step 1: Log in
-  await page.goto("https://dashboard.katabump.com/login", { waitUntil: "networkidle2" });
+  await page.goto("https://dashboard.katabump.com/auth/login", { waitUntil: "networkidle2" });
 
   await page.type('input[type="email"]', process.env.KATABUMP_EMAIL);
   await page.type('input[type="password"]', process.env.KATABUMP_PASSWORD);
