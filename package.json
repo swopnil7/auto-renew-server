@@ -1,0 +1,12 @@
+{
+  "name": "katabump-auto-renew",
+  "version": "1.0.0",
+  "description": "Auto-renew KataBump server using Puppeteer",
+  "main": "renew.js",
+  "scripts": {
+    "start": "node renew.js"
+  },
+  "dependencies": {
+    "puppeteer": "^21.3.8"
+  }
+}
